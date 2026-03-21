@@ -113,6 +113,30 @@ export default function UIElementsIndexPage() {
             View Steps →
           </a>
         </div>
+
+        <div className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            Range Slider
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Interactive range sliders with visual feedback.
+          </p>
+          <a href="/admin/ui-elements/range" className="text-brand-500 hover:text-brand-600 font-medium">
+            View Range →
+          </a>
+        </div>
+
+        <div className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            Toggle Switch
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Animated toggle switches with multiple variants.
+          </p>
+          <a href="/admin/ui-elements/toggle" className="text-brand-500 hover:text-brand-600 font-medium">
+            View Toggle →
+          </a>
+        </div>
       </div>
     </div>
   );
