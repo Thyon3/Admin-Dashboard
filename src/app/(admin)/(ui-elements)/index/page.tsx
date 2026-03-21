@@ -161,6 +161,18 @@ export default function UIElementsIndexPage() {
             View Tags →
           </a>
         </div>
+
+        <div className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            Progress
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Progress bars and rings with multiple styles.
+          </p>
+          <a href="/admin/ui-elements/progress" className="text-brand-500 hover:text-brand-600 font-medium">
+            View Progress →
+          </a>
+        </div>
       </div>
     </div>
   );
