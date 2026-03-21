@@ -173,6 +173,18 @@ export default function UIElementsIndexPage() {
             View Progress →
           </a>
         </div>
+
+        <div className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            Context Menu
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Right-click context menus with positioning.
+          </p>
+          <a href="/admin/ui-elements/contextmenu" className="text-brand-500 hover:text-brand-600 font-medium">
+            View Context Menu →
+          </a>
+        </div>
       </div>
     </div>
   );
