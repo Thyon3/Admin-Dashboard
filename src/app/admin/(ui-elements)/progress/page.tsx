@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from "react";
 import ProgressBar from "@/components/ui/progress/ProgressBar";
 import ProgressRing from "@/components/ui/progress/ProgressRing";
 

@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from "react";
 import Toggle from "@/components/ui/toggle/Toggle";
 
 export default function TogglePage() {

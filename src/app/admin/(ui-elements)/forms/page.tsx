@@ -1,3 +1,4 @@
+"use client";
 import Label from "@/components/form/Label";
 import InputField from "@/components/form/input/InputField";
 import Checkbox from "@/components/form/checkbox/Checkbox";

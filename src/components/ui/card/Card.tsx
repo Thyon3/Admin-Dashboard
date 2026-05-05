@@ -2,6 +2,7 @@ import React from "react";
 
 interface CardProps {
   children: React.ReactNode;
+  title?: string;
   className?: string;
   shadow?: "none" | "sm" | "md" | "lg";
   padding?: "none" | "sm" | "md" | "lg";
@@ -11,6 +12,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ 
   children, 
+  title,
   className = "",
   shadow = "md",
   padding = "md",
@@ -38,6 +40,13 @@ const Card: React.FC<CardProps> = ({
     <div
       className={`bg-white dark:bg-gray-800 ${shadowClasses[shadow]} ${paddingClasses[padding]} ${borderClasses} ${roundedClasses} ${className}`}
     >
+      {title && (
+        <div className="mb-4 pb-4 border-b border-gray-100 dark:border-gray-700">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            {title}
+          </h3>
+        </div>
+      )}
       {children}
     </div>
   );

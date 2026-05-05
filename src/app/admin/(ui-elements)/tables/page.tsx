@@ -1,3 +1,4 @@
+"use client";
 import { Table, TableHeader, TableBody, TableRow, TableCell } from "@/components/ui/table";
 import Pagination from "@/components/tables/Pagination";
 
