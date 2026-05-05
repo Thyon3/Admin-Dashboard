@@ -47,12 +47,12 @@ export default function AdminLayout({
         isCollapsed={isSidebarCollapsed}
         onToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
       />
-      
+
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-        <Header 
+        <Header
           onMenuToggle={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
         />
-        
+
         <main className="flex-1 relative overflow-y-auto focus:outline-none p-6">
           {children}
         </main>

@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-outfit: Outfit, sans-serif;
+  
+  --color-brand-50: #ecf3ff;
+  --color-brand-100: #dde9ff;
+  --color-brand-200: #c2d6ff;
+  --color-brand-300: #9cb9ff;
+  --color-brand-400: #7592ff;
+  --color-brand-500: #465fff;
+  --color-brand-600: #3641f5;
+  --color-brand-700: #2a31d8;
+  --color-brand-800: #252dae;
+  --color-brand-900: #1e2587;
+
+  --color-success-50: #ecfdf3;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+
+  --color-blue-light-50: #f0f9ff;
+  --color-blue-light-500: #0ea5e9;
+  --color-blue-light-600: #0284c7;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --shadow-theme-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+body {
+  font-family: var(--font-outfit);
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+* {
+  border-color: #e5e7eb;
+}
