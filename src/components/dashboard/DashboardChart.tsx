@@ -9,47 +9,66 @@ const DashboardChart = () => {
   const options: any = {
     chart: {
       toolbar: { show: false },
-      fontFamily: "Inter, sans-serif",
+      fontFamily: "Outfit, sans-serif",
+      zoom: { enabled: false },
     },
     dataLabels: { enabled: false },
-    stroke: { curve: "smooth", width: 3 },
+    stroke: { curve: "smooth", width: 3, lineCap: "round" },
     xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       axisBorder: { show: false },
       axisTicks: { show: false },
+      labels: {
+        style: { colors: "#9ca3af", fontSize: "12px" },
+      },
     },
-    yaxis: { show: false },
-    grid: { show: false },
-    colors: ["#465fff"],
+    yaxis: {
+      labels: {
+        style: { colors: "#9ca3af", fontSize: "12px" },
+        formatter: (val: number) => `$${val}k`,
+      },
+    },
+    grid: {
+      borderColor: "rgba(156, 163, 175, 0.1)",
+      strokeDashArray: 4,
+    },
+    colors: ["#465fff", "#10b981"],
     fill: {
       type: "gradient",
       gradient: {
         shadeIntensity: 1,
-        opacityFrom: 0.7,
-        opacityTo: 0.3,
+        opacityFrom: 0.4,
+        opacityTo: 0.1,
         stops: [0, 90, 100],
       },
     },
-    tooltip: { x: { show: false } },
+    legend: {
+      position: "top",
+      horizontalAlign: "right",
+      offsetY: -20,
+      itemMargin: { horizontal: 10 },
+      markers: { radius: 12 },
+    },
+    tooltip: {
+      theme: "dark",
+      x: { show: false },
+    },
   };
 
   const series = [
     {
-      name: "Sales",
-      data: [31, 40, 28, 51, 42, 109, 100],
+      name: "Revenue",
+      data: [45, 52, 38, 65, 48, 82, 75],
+    },
+    {
+      name: "Expenses",
+      data: [35, 41, 32, 45, 38, 52, 48],
     },
   ];
 
   return (
-    <Card className="col-span-2">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Revenue Analytics</h3>
-        <select className="bg-gray-50 dark:bg-gray-800 border-none text-sm text-gray-500 rounded-lg focus:ring-0">
-          <option>Last 7 Days</option>
-          <option>Last 30 Days</option>
-        </select>
-      </div>
-      <div className="h-64">
+    <Card title="Revenue vs Expenses" className="col-span-1 lg:col-span-2">
+      <div className="h-80">
         <Chart options={options} series={series} type="area" height="100%" />
       </div>
     </Card>

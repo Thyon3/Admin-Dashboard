@@ -2,14 +2,8 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
 
 interface UserPreferences {
+  status: "online" | "away" | "busy";
   language: string;
-  timezone: string;
-  dateFormat: string;
-  notifications: {
-    email: boolean;
-    push: boolean;
-    desktop: boolean;
-  };
   appearance: {
     compactMode: boolean;
     showSidebar: boolean;
@@ -20,18 +14,13 @@ interface UserPreferences {
 interface UserPreferencesContextType {
   preferences: UserPreferences;
   updatePreferences: (updates: Partial<UserPreferences>) => void;
-  resetPreferences: () => void;
+  toggleCompactMode: () => void;
+  toggleStatus: () => void;
 }
 
 const defaultPreferences: UserPreferences = {
+  status: "online",
   language: "en",
-  timezone: "UTC",
-  dateFormat: "MM/DD/YYYY",
-  notifications: {
-    email: true,
-    push: true,
-    desktop: false,
-  },
   appearance: {
     compactMode: false,
     showSidebar: true,
@@ -49,50 +38,30 @@ export function useUserPreferences() {
   return context;
 }
 
-interface UserPreferencesProviderProps {
-  children: React.ReactNode;
-  initialPreferences?: Partial<UserPreferences>;
-}
-
-export function UserPreferencesProvider({ 
-  children, 
-  initialPreferences = {} 
-}: UserPreferencesProviderProps) {
-  const [preferences, setPreferences] = useState<UserPreferences>({
-    ...defaultPreferences,
-    ...initialPreferences,
-  });
+export function UserPreferencesProvider({ children }: { children: React.ReactNode }) {
+  const [preferences, setPreferences] = useState<UserPreferences>(defaultPreferences);
 
   const updatePreferences = useCallback((updates: Partial<UserPreferences>) => {
+    setPreferences(prev => ({ ...prev, ...updates }));
+  }, []);
+
+  const toggleCompactMode = useCallback(() => {
     setPreferences(prev => ({
       ...prev,
-      ...updates,
-      notifications: {
-        ...prev.notifications,
-        ...updates.notifications,
-      },
-      appearance: {
-        ...prev.appearance,
-        ...updates.appearance,
-      },
+      appearance: { ...prev.appearance, compactMode: !prev.appearance.compactMode }
     }));
   }, []);
 
-  const resetPreferences = useCallback(() => {
-    setPreferences(defaultPreferences);
+  const toggleStatus = useCallback(() => {
+    setPreferences(prev => ({
+      ...prev,
+      status: prev.status === "online" ? "away" : "online"
+    }));
   }, []);
 
-  const value: UserPreferencesContextType = {
-    preferences,
-    updatePreferences,
-    resetPreferences,
-  };
-
   return (
-    <UserPreferencesContext.Provider value={value}>
+    <UserPreferencesContext.Provider value={{ preferences, updatePreferences, toggleCompactMode, toggleStatus }}>
       {children}
     </UserPreferencesContext.Provider>
   );
 }
-
-export default UserPreferencesProvider;

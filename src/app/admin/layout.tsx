@@ -11,66 +11,53 @@ export default function AdminLayout({
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   const sidebarItems = [
+    // --- SECTION: INTELLIGENCE ---
     {
-      id: "dashboard",
-      label: "Dashboard",
-      href: "/admin",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      ),
+      id: "intelligence-group",
+      label: "Intelligence",
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
+      children: [
+        { id: "dashboard", label: "Pulse Overview", href: "/admin", badge: "Live" },
+        { id: "analytics-revenue", label: "Revenue Attribution", href: "/admin/analytics/revenue" },
+        { id: "analytics-ltv", label: "Customer LTV", href: "/admin/analytics/ltv" },
+        { id: "analytics-conversion", label: "Conversion Funnels", href: "/admin/analytics/conversion" },
+      ]
     },
+    // --- SECTION: OPERATIONS ---
     {
-      id: "users",
-      label: "User Management",
-      href: "/admin/users",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      ),
-    },
-    {
-      id: "ecommerce",
-      label: "E-commerce",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-      ),
+      id: "operations-group",
+      label: "Operations",
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
       children: [
         { id: "products", label: "Products", href: "/admin/products" },
-        { id: "orders", label: "Orders", href: "/admin/orders" },
-      ],
+        { id: "collections", label: "Dynamic Collections", href: "/admin/collections" },
+        { id: "inventory", label: "Inventory Matrix", href: "/admin/inventory" },
+        { id: "orders", label: "Order Management", href: "/admin/orders", badge: "12" },
+        { id: "rma", label: "Returns (RMA)", href: "/admin/returns" },
+      ]
     },
+    // --- SECTION: RELATIONSHIPS ---
     {
-      id: "ui-elements",
-      label: "UI Elements",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-        </svg>
-      ),
+      id: "relationships-group",
+      label: "Relationships",
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
       children: [
-        { id: "alerts", label: "Alerts", href: "/admin/alerts" },
-        { id: "avatars", label: "Avatars", href: "/admin/avatars" },
-        { id: "badges", label: "Badges", href: "/admin/badges" },
-        { id: "buttons", label: "Buttons", href: "/admin/buttons" },
-        { id: "forms", label: "Forms", href: "/admin/forms" },
-        { id: "tables", label: "Tables", href: "/admin/tables" },
-      ],
+        { id: "customers", label: "Customer Profiles", href: "/admin/customers" },
+        { id: "loyalty", label: "Loyalty Tiers", href: "/admin/loyalty" },
+        { id: "tickets", label: "Support Tickets", href: "/admin/tickets", badge: "New" },
+        { id: "marketing", label: "Campaign Builder", href: "/admin/marketing" },
+      ]
     },
+    // --- SECTION: SYSTEM ---
     {
-      id: "settings",
-      label: "Settings",
-      href: "/admin/settings",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
+      id: "system-group",
+      label: "System",
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z" /></svg>,
+      children: [
+        { id: "rbac", label: "Staff Roles (RBAC)", href: "/admin/rbac" },
+        { id: "settings", label: "Global Settings", href: "/admin/settings" },
+        { id: "api-keys", label: "API Integrations", href: "/admin/api-keys" },
+      ]
     },
   ];
 
