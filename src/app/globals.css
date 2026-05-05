@@ -1,13 +1,1 @@
-@import 'tailwindcss';
-
-@custom-variant dark (&:is(.dark *));
-
-@theme {
-  --font-outfit: Outfit, sans-serif;
-  --color-brand-500: #465fff;
-  --color-brand-600: #3641f5;
-}
-
-body {
-  font-family: var(--font-outfit);
-}
+@import "tailwindcss";
