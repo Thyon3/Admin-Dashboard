@@ -112,8 +112,8 @@ const Sidebar: React.FC<SidebarProps> = ({ items, isCollapsed = false, onToggle 
       <div className={`flex items-center h-16 px-4 border-b border-gray-200 dark:border-gray-800 flex-shrink-0 ${isCollapsed ? "justify-center" : "justify-between"}`}>
         {!isCollapsed && (
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-black text-lg">A</div>
-            <span className="text-lg font-black tracking-tight text-gray-900 dark:text-white">Apex</span>
+            <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-black text-lg">T</div>
+            <span className="text-lg font-black tracking-tight text-gray-900 dark:text-white">Thyon</span>
           </div>
         )}
         <button
@@ -136,10 +136,10 @@ const Sidebar: React.FC<SidebarProps> = ({ items, isCollapsed = false, onToggle 
       {!isCollapsed && (
         <div className="p-3 border-t border-gray-200 dark:border-gray-800 flex-shrink-0">
           <div className="flex items-center gap-3 p-3 rounded-2xl bg-gray-50 dark:bg-gray-800/60">
-            <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">JD</div>
+            <div className="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">TM</div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-bold text-gray-900 dark:text-white truncate">John Doe</p>
-              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Super Admin</p>
+              <p className="text-sm font-bold text-gray-900 dark:text-white truncate">Thyon (Asnake Mengesha)</p>
+              <p className="text-[10px] text-gray-400 font-bold lowercase tracking-wider">asnakemengesha80@gmail.com</p>
             </div>
             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 flex-shrink-0 ring-2 ring-white dark:ring-gray-800" />
           </div>

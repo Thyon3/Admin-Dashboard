@@ -107,12 +107,12 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
           {/* Profile */}
           <div className="flex items-center gap-2 pl-2 border-l border-gray-200 dark:border-gray-800 ml-1">
             <div className="relative cursor-pointer" onClick={toggleStatus}>
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white text-xs font-bold">JD</div>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white text-xs font-bold">TM</div>
               <div className={`absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full ring-2 ring-white dark:ring-gray-900 ${preferences.status === "online" ? "bg-emerald-500" : "bg-amber-500"}`} />
             </div>
             <div className="hidden md:flex flex-col">
-              <span className="text-xs font-bold text-gray-900 dark:text-white leading-tight">John Doe</span>
-              <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Super Admin</span>
+              <span className="text-xs font-bold text-gray-900 dark:text-white leading-tight">Thyon (Asnake Mengesha)</span>
+              <span className="text-[10px] text-gray-400 font-bold lowercase tracking-wider">asnakemengesha80@gmail.com</span>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({
     lg: "p-8",
   };
 
-  const borderClasses = border ? "border border-gray-100 dark:border-white/10" : "";
+  const borderClasses = border ? "border border-slate-200/60 dark:border-white/10" : "";
   const roundedClasses = rounded ? "rounded-2xl" : "";
 
   return (
