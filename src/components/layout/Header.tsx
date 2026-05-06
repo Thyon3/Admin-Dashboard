@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { useUserPreferences } from "@/context/UserPreferencesContext";
+import Link from "next/link";
 
 interface HeaderProps {
   onMenuToggle?: () => void;
@@ -97,7 +98,13 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
                     ))}
                   </div>
                   <div className="px-4 py-3 text-center">
-                    <button className="text-xs font-bold text-brand-500 hover:underline">View all alerts</button>
+                    <Link 
+                      href="/admin/notifications" 
+                      onClick={() => setNotifOpen(false)}
+                      className="text-xs font-bold text-brand-500 hover:underline inline-block w-full"
+                    >
+                      View all alerts
+                    </Link>
                   </div>
                 </div>
               </>
