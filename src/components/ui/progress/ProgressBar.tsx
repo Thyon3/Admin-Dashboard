@@ -1,23 +1,26 @@
 import React from "react";
 
 interface ProgressBarProps {
-  value: number;
+  progress: number;
   max?: number;
   size?: "sm" | "md" | "lg";
   color?: "primary" | "success" | "error" | "warning";
   showLabel?: boolean;
+  showPercentage?: boolean; // Added to match ProgressRing and page usage
   className?: string;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ 
-  value, 
+  progress, 
   max = 100, 
   size = "md",
   color = "primary",
   showLabel = false,
+  showPercentage = false,
   className = "" 
 }) => {
-  const percentage = Math.min((value / max) * 100, 100);
+  const displayLabel = showLabel || showPercentage;
+  const percentage = Math.min((progress / max) * 100, 100);
   
   const sizeClasses = {
     sm: "h-2",
@@ -34,7 +37,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div className={`w-full ${className}`}>
-      {showLabel && (
+      {displayLabel && (
         <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
           <span>Progress</span>
           <span>{Math.round(percentage)}%</span>
@@ -43,7 +46,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       <div 
         className={`w-full bg-gray-200 dark:bg-gray-700 rounded-full ${sizeClasses[size]}`}
         role="progressbar"
-        aria-valuenow={value}
+        aria-valuenow={progress}
         aria-valuemin={0}
         aria-valuemax={max}
         aria-label={`Progress: ${Math.round(percentage)}%`}
