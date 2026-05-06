@@ -45,16 +45,16 @@ const Sidebar: React.FC<SidebarProps> = ({ items, isCollapsed = false, onToggle 
           flex items-center gap-3 px-3 py-2.5 rounded-xl my-0.5 cursor-pointer transition-all duration-200 group
           ${level === 0
             ? isActive || childActive
-              ? "bg-brand-500 text-white shadow-lg shadow-brand-500/25"
+              ? "text-brand-600 dark:text-brand-400 font-bold"
               : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
             : isActive
-              ? "bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 font-bold"
+              ? "text-brand-600 dark:text-brand-400 font-bold"
               : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
           }
         `}
       >
         {item.icon && (
-          <span className={`flex-shrink-0 transition-colors ${(isActive || childActive) && level === 0 ? "text-white" : ""}`}>
+          <span className={`flex-shrink-0 transition-colors ${(isActive || childActive) && level === 0 ? "text-brand-600 dark:text-brand-400" : ""}`}>
             {item.icon}
           </span>
         )}
@@ -66,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items, isCollapsed = false, onToggle 
             {item.badge && (
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${
                 (isActive || childActive) && level === 0
-                  ? "bg-white/20 text-white"
+                  ? "text-brand-600 dark:text-brand-400"
                   : "bg-brand-500 text-white"
               }`}>
                 {item.badge}
@@ -74,7 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items, isCollapsed = false, onToggle 
             )}
 
             {hasChildren && (
-              <svg className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""} ${(isActive || childActive) && level === 0 ? "text-white" : "text-gray-400"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""} ${(isActive || childActive) && level === 0 ? "text-brand-600 dark:text-brand-400" : "text-gray-400"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             )}
