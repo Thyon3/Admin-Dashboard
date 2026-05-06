@@ -1,7 +1,12 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import ChartSkeleton from "@/components/ui/ChartSkeleton";
+
+const Chart = dynamic(() => import("react-apexcharts"), { 
+  ssr: false,
+  loading: () => <ChartSkeleton height={260} />
+});
 
 const cohorts = [
   { month: "Jan 2026", n: 840, d30: "$284", d90: "$612", d180: "$980", d365: "$1,840", ret: "78%" },
@@ -29,7 +34,7 @@ export default function LTVPage() {
     xaxis: { categories: ["Mo 1","Mo 2","Mo 3","Mo 4","Mo 5","Mo 6","Mo 12"], labels: { style: { colors: "#9ca3af", fontSize: "11px" } }, axisBorder: { show: false } },
     yaxis: { labels: { style: { colors: "#9ca3af" }, formatter: (v: number) => `$${v}` } },
     grid: { borderColor: "rgba(156,163,175,0.08)" },
-    legend: { position: "top" as const, horizontalAlign: "right" as const, markers: { radius: 12 } },
+    legend: { position: "top" as const, horizontalAlign: "right" as const, markers: { radius: 12 }, fontSize: "12px" },
     tooltip: { theme: "dark" },
   };
 

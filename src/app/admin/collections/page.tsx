@@ -1,7 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import ChartSkeleton from "@/components/ui/ChartSkeleton";
+
+const Chart = dynamic(() => import("react-apexcharts"), { 
+  ssr: false,
+  loading: () => <ChartSkeleton height={200} />
+});
 
 const collections = [
   { id: "COL-001", name: "Summer Essentials 2026", products: 48, revenue: "$84,200", status: "Published", type: "Automated", lastUpdated: "May 5", image: "☀️" },
