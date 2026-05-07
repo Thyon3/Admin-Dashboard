@@ -25,7 +25,7 @@ const Carousel: React.FC<CarouselProps> = ({
   className = ""
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));

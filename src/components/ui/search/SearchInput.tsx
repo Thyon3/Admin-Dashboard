@@ -23,7 +23,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
   const [internalValue, setInternalValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const sizeClasses = {
     sm: "h-9 px-3 text-sm",

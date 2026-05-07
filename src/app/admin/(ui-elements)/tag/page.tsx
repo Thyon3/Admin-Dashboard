@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from "react";
 import Tag from "@/components/ui/tag/Tag";
 
 export default function TagPage() {

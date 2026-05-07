@@ -28,16 +28,16 @@ export function endOfDay(date: Date): Date {
   return result;
 }
 
-export function startOfWeek(date: Date, startOfWeek: number = 0): Date {
+export function startOfWeek(date: Date, weekStart: number = 0): Date {
   const result = new Date(date);
   const day = result.getDay();
-  const diff = (day < startOfWeek ? 7 : 0) + day - startOfWeek;
+  const diff = (day < weekStart ? 7 : 0) + day - weekStart;
   result.setDate(result.getDate() - diff);
   return startOfDay(result);
 }
 
-export function endOfWeek(date: Date, startOfWeek: number = 0): Date {
-  const result = startOfWeek(date, startOfWeek);
+export function endOfWeek(date: Date, weekStart: number = 0): Date {
+  const result = startOfWeek(date, weekStart);
   result.setDate(result.getDate() + 6);
   return endOfDay(result);
 }
@@ -76,9 +76,9 @@ export function isTomorrow(date: Date): boolean {
   return isSameDay(date, tomorrow);
 }
 
-export function isThisWeek(date: Date, startOfWeek: number = 0): boolean {
-  const start = startOfWeek(new Date(), startOfWeek);
-  const end = endOfWeek(new Date(), startOfWeek);
+export function isThisWeek(date: Date, weekStart: number = 0): boolean {
+  const start = startOfWeek(new Date(), weekStart);
+  const end = endOfWeek(new Date(), weekStart);
   return date >= start && date <= end;
 }
 

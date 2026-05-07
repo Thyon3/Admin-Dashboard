@@ -1,3 +1,4 @@
+"use client";
 import ContextMenu from "@/components/ui/contextmenu/ContextMenu";
 
 export default function ContextMenuPage() {
